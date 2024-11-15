@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>passport</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+    .body-content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    p {
+        text-align: center;
+        line-height: 1.6em;
+    }
+    
+    .header {
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        position: relative;
+        border-bottom: 2px solid #0d335d;
+    }
+    
+    .header .tit {
+        font-size: 22px;
+        color: #333;
+        font-size: 22px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 600;
+    }
+    
+    .icon_box {
+        width: 50%;
+        margin: 30px auto 0;
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .icon {
+        margin-left: 50%;
+        transform: translate(-50%);
+        width: 90%;
+    }
+    
+    .txt_box {
+        width: 80%;
+        margin: 30px auto;
+    }
+    
+    .back {
+        margin: 20px auto 0;
+        text-align: right;
+        padding: 20px;
+        border-top: 2px solid #0d335d;
+    }
+    
+    .back a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+    }
+    
+    .back a span img {
+        width: 30px;
+        margin-right: 10px;
+    }
+    
+    .border {
+        width: 90%;
+        height: 1px;
+        margin: 20px auto 40px;
+        background: #eeeeee;
+    }
+    
+    .photo {
+        width: 100%;
+        margin: 0 auto 35px;
+    }
+    
+    .photo .addition {
+        width: 45%;
+        height: 95px;
+        margin-left: 3.333%;
+        background: #0d335d;
+        border-radius: 5px;
+        position: relative;
+    }
+    
+    .photo .addition .more {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .photo .addition .more a {
+        color: #fff;
+    }
+    
+    .photo .addition .more a:hover {
+        text-decoration: none;
+    }
+    
+    .photo .addition .more img {
+        width: 60%;
+        margin-left: 50%;
+        transform: translate(-50%);
+    }
+    
+    .photo .addition .more span {
+        display: block;
+        margin-top: 10px;
+    }
+    
+    .photo .select {
+        margin-top: 30px;
+    }
+    
+    .photo .select ul {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .photo .select ul:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+    
+    .photo .select ul li {
+        float: left;
+        width: 45%;
+        padding: 20px;
+        background: #fdfdfd;
+        text-align: center;
+        border-radius: 5px;
+        margin-left: 3.333%;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .photo .select ul li a {
+        width: 100%;
+        color: #333;
+        font-weight: 600;
+    }
+    
+    .photo .select ul li a:hover {
+        text-decoration: none;
+    }
+    
+    .photo .select ul li span.txt {
+        display: inline;
+        margin-left: 10px;
+    }
+    
+    .photo .select ul li img {
+        width: 50px;
+    }
+    
+    .btn_box {
+        width: 95%;
+        margin: 20px auto 30px;
+    }
+    
+    .btn_box a {
+        display: block;
+        font-size: 16px;
+        padding: 10px;
+        color: #333;
+        background: #ffd369;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 600;
+    }
+    
+    .btn_box a:hover {
+        text-decoration: none;
+    }
+    
+    .warn {
+        width: 90%;
+        margin: 0px auto 40px;
+        padding: 10px 0;
+        border-radius: 10px;
+        border: 2px solid #ffd369;
+        /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);*/
+    }
+    
+    .warn:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+    
+    .warn .img_box {
+        width: 30%;
+        margin-top: 20px;
+        float: left;
+        text-align: center;
+    }
+    
+    .warn .img_box span {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.3em;
+    }
+    
+    .warn .img_box img {
+        width: 40%;
+        margin-left: 30%;
+        margin-bottom: 5px;
+        transform: translate(-40%);
+    }
+    
+    .warn p {
+        width: 70%;
+        float: right;
+        text-align: left;
+        font-size: 12px;
+    }
+</style>
+
+<body>
+    <div class="wrap">
+        <div class="header">
+            <p class="tit">여권 제출</p>
+        </div>
+
+        <div class="icon_box">
+            <img src="./images/passport.png" width="100% " height="auto " class="icon ">
+
+        </div>
+
+        <div class="txt_box">
+            <p>
+                결제가 완료되었습니다.
+            </p>
+            <p>
+                대한민국 외국인 여행객 관리법에 따라<br> 호텔에 체크인하는 모든 외국인 투숙객의<br> 여권 사본을 호텔에서 일정 기간동안<br> 보관하도록 되어 있습니다.<br> 아래 '사진 촬영' 혹은 '앨범 검색' 버튼을 눌러<br> 여권 사진을 업로드 해 주십시오.
+            </p>
+        </div>
+
+        <div class="warn">
+            <div class="img_box">
+                <img src="./images/warn.png" alt="유의사항">
+                <span>촬영시<br> 유의사항</span>
+            </div>
+            <p>
+                <br> 여권 전체가 들어오도록 촬영해 주십시오.<br> 훼손된 여권은 제출할 수 없습니다.<br> (접힘, 낙서, 찢김, 구김 등)<br> 여러 여권을 동시에 촬영하실 수 없습니다.<br> (여권 하나당 1번씩 촬영)
+            </p>
+        </div>
+
+        <div class="border"></div>
+
+        <div class="photo">
+            <div class="addition">
+                <div class="more">
+                    <a href="#">
+                        <img src="./images/plus_icon.png">
+                        <span class="txt">사진 추가</span>
+                    </a>
+                </div>
+            </div>
+            <div class="select">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="./images/camera.png" alt="사진촬영">
+                            <span class="txt">사진 촬영</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="./images/img.png" alt="앨범">
+                            <span class="txt">앨범 선택</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="btn_box">
+            <a href="payment.html">다음 단계</a>
+        </div>
+
+        <div class="back">
+            <a href="./check-in.html">
+                <span><img src="./images/left.png" alt="화살표"></span> 처음으로 돌아가기
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

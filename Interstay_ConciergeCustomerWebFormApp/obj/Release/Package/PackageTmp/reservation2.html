@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>reservation</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+    .body-content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .header {
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        position: relative;
+        border-bottom: 2px solid #ffd369;
+    }
+    
+    .header .tit {
+        font-size: 22px;
+        color: #333;
+        font-size: 22px;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 600;
+    }
+    
+    .icon_box {
+        width: 30%;
+        margin: 20px auto 10px;
+        padding: 10px;
+    }
+    
+    .icon {
+        margin-left: 50%;
+        transform: translate(-50%);
+        width: 100px;
+    }
+    
+    p {
+        text-align: center;
+    }
+    
+    .btn_box {
+        width: 25%;
+        margin: 20px auto;
+    }
+    
+    .btn_box a {
+        display: block;
+        font-size: 16px;
+        padding: 10px;
+        color: #333;
+        background: #ffd369;
+        text-align: center;
+        border-radius: 15px;
+        font-weight: 600;
+    }
+    
+    .btn_box a:hover {
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <div class="wrap">
+        <div class="header">
+            <p class="tit">예약 확인</p>
+        </div>
+
+        <div class="icon_box">
+            <img src="./images/reservation2.png" width="100%" height="auto" class="icon">
+        </div>
+        <p>
+            죄송합니다 고객님
+        </p>
+        <p>
+            입력하신 정보로 확인되는 예약이 없습니다.<br> 다시 한번 확인하시어 입력 부탁드립니다.
+        </p>
+
+        <div class="btn_box">
+            <a href="./check-in.html">이전 단계</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+﻿- Session["language_id"] 추가하고 SP에서 language_id 값 읽어오는 것 없애기
+- 향후 language 테이블 보강하고 호텔별로 supported Language 선택할 수 있게 하기
+- FCM 메세지 전송시 제목 설정 : 호텔 관리자 default language 에 따라 다른 언어로 messageType_text 불러오기
+
+var editor;
+        var oDocument;
+
+        function chkHTML() {
+            editor = $find("<%=txtBody.ClientID%>");
+            oDocument = editor.get_document(); //get a reference to the editor's document  
+            
+            alert(editor.get_id());
+
+            var InputTags = oDocument.getElementsByTagName('INPUT');
+            for (var k = 0, elm; elm = InputTags[k++];) updateDOM(elm);
+
+            
+
+            var TextAreaTags = oDocument.getElementsByTagName('TEXTAREA');
+            for (var k = 0, elm; elm = TextAreaTags[k++];) updateDOM(elm);
+
+            var SelectTags = oDocument.getElementsByTagName('SELECT');
+            for (var k = 0, elm; elm = SelectTags[k++];) updateDOM(elm);
+
+            var editorcontent = editor.get_html(false);
+            alert(editorcontent);
+        }
+
+        
+        function updateDOM(inputField) {
+            // if the inputField ID string has been passed in, get the inputField object  
+
+           
+
+            if (typeof inputField == "string") {
+                inputField = oDocument.getElementById(inputField);
+            }
+
+            if (inputField.type == "select-one") {
+                for (var i = 0; i < inputField.options.length; i++) {
+                    if (i == inputField.selectedIndex) {
+                        inputField.options[inputField.selectedIndex].setAttribute("selected", "selected");
+                    }
+                    else {
+                        inputField.options[i].removeAttribute("selected");
+                    }
+                }
+            } else if (inputField.type == "select-multiple") {
+                for (var i = 0; i < inputField.options.length; i++) {
+                    if (inputField.options[i].selected) {
+                        inputField.options[i].setAttribute("selected", "selected");
+                    } else {
+                        inputField.options[i].removeAttribute("selected");
+                    }
+                }
+            } else if (inputField.type == "text") {
+                inputField.setAttribute("value", inputField.value);
+            } else if (inputField.type == "textarea") {
+                inputField.setAttribute("value", inputField.value);
+                inputField.innerHTML = inputField.value;
+            } else if (inputField.type == "checkbox") {
+                if (inputField.checked) {
+                    inputField.setAttribute("checked", "checked");
+                } else {
+                    inputField.removeAttribute("checked");
+                }
+            } else if (inputField.type == "radio") {
+                alert("inputField.name=" + inputField.name);
+                try {
+                    var radioNames = oDocument.getElementsByName(inputField.name);
+
+                }
+                catch (e) {
+                    alert(e);
+                }
+
+                alert("radioNames.length=" + radioNames.length);
+
+                for (var i = 0; i < radioNames.length; i++) {
+                    if (radioNames[i].checked) {
+                        radioNames[i].setAttribute("checked", "checked");
+                    } else {
+                        radioNames[i].removeAttribute("checked");
+                    }
+                }
+            }
+        }
